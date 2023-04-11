@@ -1,0 +1,889 @@
+/* Reset CSS */
+@import url("https://fonts.cdnfonts.com/css/monument-extended");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins:900i");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:900");
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400&display=swap");
+
+:root {
+  --font-family: "Monument Extended", sans-serif;
+  --font-family: "Libre Baskerville", serif;
+  --font-family: "Barlow", sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Libre Baskerville", serif;
+  margin: 0 auto;
+}
+
+.hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transition: all 1s;
+  transform: translateX(-100%);
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateX(0);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion) {
+  .hidden {
+    transition: none;
+  }
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem;
+}
+
+.logo {
+  font-family: "Barlow", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 38px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.logo a {
+  color: #ffffff;
+}
+
+.nav-links {
+  display: none;
+  list-style: none;
+}
+.nav-links a {
+  color: #ffffff;
+  font-family: "Libre Baskerville", serif;
+}
+
+/* BUTTON MENU */
+
+.hamburger {
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  background-color: #f5f5f0;
+  height: 3px;
+  width: 25px;
+  margin: 5px 0px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.mobile-nav {
+  position: absolute;
+  left: -100%;
+  top: 70px;
+  height: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0;
+
+  width: 100%;
+  text-align: center;
+  transition: 0.3s;
+
+  background-position: 50%;
+}
+
+.mobile-nav a {
+  margin: 16px 0;
+  font-size: clamp(30px, 2vw, 40px);
+  font-family: "Barlow", sans-serif;
+  color: #f5f5f0;
+}
+
+.mobile-nav.active {
+  left: 0;
+}
+
+.mobile-nav h1 {
+  font-size: clamp(45px, 2vw, 60px);
+  font-family: "Barlow", sans-serif;
+  color: #f5f5f0;
+  margin-bottom: 40px;
+  text-decoration: underline;
+}
+
+.mobile-nav img {
+  height: 30px;
+}
+
+.mobile-nav span {
+  color: #f5f5f0;
+}
+
+/* Header */
+header {
+  background-image: url(/img/background-header.png);
+  background-position: 50%;
+  height: 600px;
+  background-size: cover;
+}
+.header-content {
+  text-align: center;
+  padding: 4rem 0 2rem 0;
+}
+
+.header-content.active {
+  display: none;
+}
+
+.header-content h2 {
+  font-family: "Libre Baskerville", serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(12px, 2vw, 18px);
+  line-height: 24px;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 3.5rem;
+}
+
+.header-content h1 {
+  font-family: "Barlow", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(32px, 5vw, 55px);
+  line-height: clamp(38px, 5vw, 50px);
+  text-align: center;
+  letter-spacing: clamp(1px, 0.1vw, 4px);
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 32px;
+}
+
+.header-content p {
+  font-family: "Libre Baskerville", serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(15px, 2vw, 19px);
+  letter-spacing: clamp(1px, 0.1vw, 2px);
+  line-height: 150%;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 4rem;
+}
+
+/* BTN */
+
+.cta {
+  font-family: "Barlow", sans-serif;
+  align-items: center;
+  background: transparent;
+  outline: none;
+  position: relative;
+  border: 2px solid #ffffff;
+  border-radius: 50px;
+  padding: 15px 50px;
+  overflow: hidden;
+  color: #ffffff;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/*button:before (attr data-hover)*/
+.cta:hover:before {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+.cta:before {
+  font-family: "Barlow", sans-serif;
+  content: attr(data-hover);
+  position: absolute;
+  top: 1.4em;
+  left: 0;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 800;
+  font-size: 0.8em;
+  opacity: 0;
+  transform: translate(-100%, 0);
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+}
+/*button div (button text before hover)*/
+.cta:hover div {
+  opacity: 0;
+  transform: translate(100%, 0);
+}
+.cta div {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 800;
+  font-size: 0.8em;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  color: #ffffff;
+}
+
+.button-section {
+  border-color: #f89369;
+  color: #000;
+}
+
+.button-section div {
+  color: #000;
+}
+
+.container {
+  margin-bottom: 2rem;
+}
+/* Sections */
+section {
+  padding: 2rem 0rem;
+  text-align: center;
+}
+span {
+  color: #f89369;
+}
+
+.back-to-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  display: none;
+  width: 40px;
+  border: 2px solid #f89369;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.back-to-top-btn.show {
+  display: inline-block;
+}
+
+.gentlemens {
+  color: #000;
+  text-shadow: -1px -1px 0 #f89369, 1px -1px 0 #f89369, -1px 1px 0 #f89369,
+    1px 1px 0 #f89369;
+}
+.titre {
+  font-family: "Barlow", sans-serif;
+  margin-bottom: 3rem;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(35px, 3vw, 55px);
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* PRESTATIONS */
+.sous-titre {
+  font-family: "Monument Extended", sans-serif;
+  font-size: 4rem;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  text-transform: uppercase;
+}
+#prestations h3 {
+  font-family: "Libre Baskerville ", sans-serif;
+  margin-bottom: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(30px, 3vw, 40px);
+  line-height: 28px;
+  /* identical to box height, or 93% */
+
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+#prestations p {
+  font-family: "Libre Baskerville", serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(15px, 2vw, 18px);
+  line-height: 150%;
+  text-align: center;
+  margin: 0 1rem 2rem 1rem;
+}
+
+.big {
+  width: auto;
+  height: 350px;
+}
+
+.small {
+  width: auto;
+  height: 180.88px;
+}
+
+.img-barbe {
+  width: 100%;
+  margin-bottom: 4rem;
+}
+
+.img-child {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.img-barbe .sous-titre {
+  transform: rotate(-2deg) translateY(45%);
+}
+.rasoir {
+  position: absolute;
+  top: 55%;
+  transform: translate(-160%, -35%);
+  z-index: 1;
+  width: 166.88px;
+  height: 166.88px;
+}
+
+.barbe {
+  z-index: 0;
+  transform: translate(30%, 1%) rotate(-2deg);
+  overflow: hidden;
+}
+
+.img-soins {
+  margin-bottom: 4rem;
+}
+
+.img-soins .sous-titre {
+  transform: rotate(2deg) translateY(45%);
+}
+
+.oil {
+  position: absolute;
+  top: 55%;
+  transform: translate(-120%, -60%);
+  z-index: 1;
+}
+
+.soins {
+  z-index: 0;
+  transform: translate(-30%, 1%) rotate(2deg);
+  overflow: hidden;
+}
+
+.img-coiffure .sous-titre {
+  transform: rotate(-2deg) translate(0, 45%);
+}
+
+.ciseaux {
+  position: absolute;
+  top: 55%;
+  transform: translate(-185%, -55%);
+  z-index: 1;
+  height: 220px;
+  width: Auto;
+}
+
+.coiffure {
+  z-index: 0;
+  transform: translate(30%, 1%) rotate(-2deg);
+  overflow: hidden;
+}
+
+/* WRITING */
+
+.writing {
+  position: relative;
+  height: auto;
+  width: 100%;
+  background-color: #f89369;
+  text-align: left;
+}
+
+.quotes {
+  position: absolute;
+  left: 20px;
+  top: 70px;
+}
+
+.writing-top p {
+  font-family: "Rajdhani", sans-serif;
+  margin: 70px 5vh 50px 8vh;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 130%;
+  letter-spacing: -0.3px;
+}
+
+.writing h2 {
+  font-family: "Barlow", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  margin-left: 8vh;
+}
+
+.writing h3 {
+  font-family: "Barlow", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 25px;
+  margin-left: 8vh;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 70px;
+}
+
+.writing-bottom p {
+  font-family: "Rajdhani", sans-serif;
+  margin: 0 5vh 70px 8vh;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 150%;
+}
+
+.visite {
+  color: #f5f5f0;
+  text-decoration: underline;
+}
+/* Artistes */
+.artistes-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.artistes-container img {
+  max-height: 450px;
+  max-width: 300px;
+  margin-bottom: 1vh;
+}
+
+.artistes-container h3 {
+  font-family: "Barlow", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-transform: uppercase;
+  margin-bottom: 3vh;
+}
+
+/* Tarifs */
+/* .tarif-container-left {
+  display: none;
+}
+.tarif-container-right {
+  display: none;
+} */
+.tarif-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+.slick-slider {
+  height: 520px;
+  width: 285px;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.tarif-box h3 {
+  font-family: "Barlow", sans-serif;
+  width: 245px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 30px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #000000;
+  margin: 30px 20px 15px 20px;
+}
+
+.tarif-desc {
+  font-family: "Libre Baskerville", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  text-align: center;
+  color: #121212;
+  margin: 0px 20px 14px 20px;
+}
+
+.tarif-box h5 {
+  font-family: "Libre Baskerville", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.tarif-box h4 {
+  font-family: "Barlow", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 30px;
+  letter-spacing: -0.2px;
+  color: #f89369;
+  margin-bottom: 30px;
+}
+
+.btn-tarif {
+  margin-bottom: 40px;
+}
+
+.tarif-list-childs p {
+  font-family: "Libre Baskerville", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  color: #000000;
+}
+.tarif-list-childs {
+  margin: 0px 0px 30px 20px;
+}
+
+.tick {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.tick img {
+  margin-right: 15px;
+}
+
+/* Salon */
+.section-salon {
+  height: auto;
+  width: 100%;
+}
+.salon-img img {
+  width: auto;
+  height: 350px;
+  transform: translate(-30%, 0%) rotate(2deg);
+  margin-bottom: 32px;
+}
+
+.section-salon h3 {
+  font-family: "Barlow", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 20px;
+}
+.section-salon p {
+  margin: 0px 20px 40px 20px;
+  font-family: "Libre Baskerville", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 150%;
+  text-align: center;
+  color: #121212;
+}
+
+.infos-text {
+  font-family: "Barlow", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  color: #121212;
+}
+
+.infos-text a {
+  color: #121212;
+}
+.infos-a {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section-salon h4 {
+  margin-bottom: 24px;
+}
+.infos-social {
+  display: flex;
+  margin-top: 35px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+.infos-social img {
+  height: 60px;
+  margin-right: 10px;
+}
+
+/* Footer */
+footer {
+  background-color: black;
+  padding: 2rem 1rem;
+  color: #f5f5f0;
+}
+
+footer h2 {
+  font-family: "Barlow", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(25px, 2vw, 35px);
+  line-height: 38px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 31px;
+}
+
+footer p {
+  font-family: "Libre Baskerville", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 150%;
+  text-align: center;
+  margin-bottom: 31px;
+}
+
+footer h3 {
+  font-family: "Libre Baskerville", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  text-align: center;
+}
+
+@media screen and (max-width: 374px) {
+  .barbe {
+    transform: translate(20%, 1%) rotate(-2deg);
+  }
+  .rasoir {
+    transform: translate(-170%, -35%);
+  }
+  .oil {
+    transform: translate(-100%, -60%);
+  }
+  .soins {
+    transform: translate(-22%, 1%) rotate(2deg);
+  }
+  .ciseaux {
+    transform: translate(-200%, -55%);
+  }
+  .coiffure {
+    transform: translate(22%, 1%) rotate(-2deg);
+  }
+  .salon-img img {
+    transform: translate(-22%, 0%) rotate(2deg);
+  }
+  .barbe-desc {
+    margin-bottom: 4rem;
+  }
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+}
+
+/* Media Query pour les écrans plus larges */
+@media screen and (min-width: 768px) {
+  .nav-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .nav-links a:hover {
+    color: #f89369;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  header {
+    background-size: cover;
+    background-position: 0;
+
+    width: 100%;
+  }
+  .artistes-container {
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+  }
+  .img-art img {
+    max-height: 350px;
+    max-width: 300px;
+    margin-bottom: 1vh;
+  }
+
+  .artistes-container h3 {
+    font-family: "Barlow", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+    margin-bottom: 3vh;
+  }
+  .img-child {
+    width: 365px;
+  }
+
+  .img-barbe {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .barbe-desc {
+    width: 45%;
+    margin-top: 7rem;
+  }
+
+  .img-soins {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .soins-desc {
+    width: 45%;
+    margin-top: 7rem;
+  }
+
+  .img-coiffure {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  .coiffure-desc {
+    width: 45%;
+    margin-top: 7rem;
+  }
+  .tarif-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .tarif-box {
+    height: 520px;
+    width: 285px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+  .section-salon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .section-salon-right {
+    width: 50%;
+  }
+
+  .salon-img img {
+    transform: translate(-22%, 0%) rotate(2deg);
+  }
+}
+
+@media screen and (min-width: 1020px) {
+  .big,
+  .salon-img img {
+    height: 500px;
+  }
+  .small {
+    height: 250px;
+    width: auto;
+  }
+  .ciseaux {
+    transform: translate(-220%, -55%);
+  }
+
+  .img-art {
+    max-width: 400px;
+    max-height: 550px;
+  }
+  .tarif-box {
+    height: 520px;
+    width: 285px;
+  }
+  .writing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .writing-top {
+    margin-left: 50px;
+  }
+
+  .quotes {
+    left: 100px;
+  }
+
+  .writing-bottom {
+    margin-right: 50px;
+  }
+}
