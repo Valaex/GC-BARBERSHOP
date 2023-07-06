@@ -705,6 +705,14 @@ footer h3 {
   line-height: 24px;
   text-align: center;
 }
+.footer-horaires {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.horaires-left {
+  margin-right: 20px;
+}
 
 @media screen and (max-width: 374px) {
   .barbe {
@@ -846,6 +854,24 @@ footer h3 {
   .salon-img img {
     transform: translate(-22%, 0%) rotate(2deg);
   }
+
+  .footer-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 30px;
+  }
+
+  .footer-right {
+    width: 500px;
+  }
+
+  .footer-left h2 {
+    margin-top: 50px;
+  }
+  .footer-left p {
+    width: 400px;
+    text-align: center;
+  }
 }
 
 @media screen and (min-width: 1020px) {
@@ -885,5 +911,12 @@ footer h3 {
 
   .writing-bottom {
     margin-right: 50px;
+  }
+  .footer-left {
+    text-align: center;
+  }
+  .footer-left p {
+    width: 500px;
+    text-align: center;
   }
 }
